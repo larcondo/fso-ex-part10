@@ -1,4 +1,5 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { Link } from 'react-router-native';
 import theme from '../theme';
 
 const styles = StyleSheet.create({
@@ -19,12 +20,12 @@ const styles = StyleSheet.create({
 const AppBarTab = () => {
   return(
     <View style={styles.container}>
-      <Pressable style={({ pressed }) => [
-        { backgroundColor: pressed ? '#7799ff' : theme.backgroundColors.appBarButtom },
-        styles.button
-      ]}>
-        <Text style={styles.text}>Repositories</Text>
-      </Pressable>
+      <Link to='/' underlayColor={theme.backgroundColors.appBarLink}>
+        <Text style={[styles.text, styles.button]}>Repositories</Text>
+      </Link>
+      <Link to='/signin' underlayColor={theme.backgroundColors.appBarLink}>
+        <Text style={[styles.text, styles.button]}>Sign-in</Text>
+      </Link>
     </View>
   );
 };

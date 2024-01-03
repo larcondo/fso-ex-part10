@@ -2,6 +2,7 @@ const theme = {
   backgroundColors: {
     appBar: '#88aaff',
     appBarButtom: '#88aaff',
+    appBarLink: '#7996E0',
     main: '#e1e4e8',
     repositoryItem: '#ffffff',
   },
