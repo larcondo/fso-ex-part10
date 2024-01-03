@@ -1,21 +1,29 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import theme from '../theme';
+
+import AvatarImage from './AvatarImage';
+import RepositoryDataPanel from './RepositoryDataPanel';
+import RepositoryStatPanel from './RepositoryStatPanel';
 
 const styles = StyleSheet.create({
   containerItem: {
+    backgroundColor: theme.backgroundColors.repositoryItem,
     padding: 10,
-  }
+    maxWidth: '100%',
+  },
+  topContainer: {
+    flexDirection: 'row',
+  },
 });
 
 const RepositoryItem = ({ repo }) => {
   return(
     <View style={styles.containerItem}>
-      <Text>Full name: { repo.fullName }</Text>
-      <Text>Description: { repo.description }</Text>
-      <Text>Language: { repo.language }</Text>
-      <Text>Stars: { repo.stargazerCount }</Text>
-      <Text>Forks: { repo.forksCount }</Text>
-      <Text>Reviews: { repo.reviewCount }</Text>
-      <Text>Rating: { repo.ratingAverage }</Text>
+      <View style={styles.topContainer}>
+        <AvatarImage uri={repo.ownerAvatarUrl} />
+        <RepositoryDataPanel repo={repo} />
+      </View>
+      <RepositoryStatPanel repo={repo} />
     </View>
   );
 };

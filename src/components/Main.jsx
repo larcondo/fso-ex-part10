@@ -1,4 +1,5 @@
 import { View, StyleSheet } from 'react-native';
+import theme from '../theme';
 
 import AppBar from './AppBar';
 import RepositoryList from './RepositoryList';
@@ -6,7 +7,7 @@ import RepositoryList from './RepositoryList';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: theme.backgroundColors.main,
     alignItems: 'center',
     justifyContent: 'center',
   },
