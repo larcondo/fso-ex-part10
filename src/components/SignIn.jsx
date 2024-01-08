@@ -20,7 +20,7 @@ const signInSchema = Yup.object().shape({
     .required('Username is required'),
   password: Yup
     .string()
-    .min(6, ({ min }) => `Passwordñ must be at least ${min} characters long.`)
+    .min(6, ({ min }) => `Password must be at least ${min} characters long.`)
     .required('Password is required'),
 });
 
