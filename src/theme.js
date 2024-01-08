@@ -5,6 +5,7 @@ const theme = {
     appBarLink: '#7996E0',
     main: '#e1e4e8',
     repositoryItem: '#ffffff',
+    submitButton: '#0366d6',
   },
   colors: {
     primary: '#0366d6',
