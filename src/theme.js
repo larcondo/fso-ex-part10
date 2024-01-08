@@ -15,6 +15,7 @@ const theme = {
     textWhite: '#ffffff',
     statValue: '#1c1c1c',
     statText: '#888888',
+    error: '#d73a4a',
   },
   avatarImage: {
     size: 55,

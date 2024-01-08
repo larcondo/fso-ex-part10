@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
   formContainer:{
     backgroundColor: '#fff',
     padding: 10,
-    gap: 10,
   },
   submitButton: {
     backgroundColor: theme.backgroundColors.submitButton,
