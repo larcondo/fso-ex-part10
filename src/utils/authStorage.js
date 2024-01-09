@@ -26,4 +26,4 @@ class AuthStorage {
   }
 }
 
-export default AsyncStorage;
+export default AuthStorage;

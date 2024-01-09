@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import useSignIn from '../hooks/useSignIn';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-native';
 
 import SignInForm from './SignInForm';
 
@@ -29,6 +30,7 @@ const signInSchema = Yup.object().shape({
 const SignIn = () => {
   const [errorMsg, setErrorMsg] = useState(null);
   const [signIn] = useSignIn();
+  const navigate = useNavigate();
 
   const onSubmit = async (values) => {
     const { username, password } = values;
@@ -37,6 +39,7 @@ const SignIn = () => {
       const { data } = await signIn({ username, password });
       console.log(data.authenticate.accessToken);
       setErrorMsg(null);
+      navigate('/');
     } catch (e) {
       console.log(e.message);
       setErrorMsg(e.message);
