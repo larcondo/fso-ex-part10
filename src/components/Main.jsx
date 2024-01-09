@@ -11,6 +11,8 @@ const styles = StyleSheet.create({
     backgroundColor: theme.backgroundColors.main,
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%',
+    paddingBottom: 20,
   },
 });
 
