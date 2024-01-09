@@ -18,10 +18,14 @@ const styles = StyleSheet.create({
     color: 'white',
     paddingVertical: 14,
     fontSize: 15,
-  }
+  },
+  errorMessage: {
+    color: theme.colors.error,
+    paddingVertical: 10,
+  },
 });
 
-const SignInForm = ({ onSubmit }) => {
+const SignInForm = ({ onSubmit, errorMessage }) => {
   return(
     <View style={styles.formContainer}>
       <FormikTextInput name='username' placeholder='Username' />
@@ -29,6 +33,7 @@ const SignInForm = ({ onSubmit }) => {
       <Pressable onPress={onSubmit} style={styles.submitButton}>
         <Text style={styles.submitText} fontWeight='bold'>Sign in</Text>
       </Pressable>
+      { errorMessage && <Text style={styles.errorMessage}>{ errorMessage }</Text> }
     </View>
   );
 };

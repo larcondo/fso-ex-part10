@@ -1,6 +1,8 @@
 import { View, StyleSheet } from 'react-native';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import useSignIn from '../hooks/useSignIn';
+import { useState } from 'react';
 
 import SignInForm from './SignInForm';
 
@@ -25,7 +27,21 @@ const signInSchema = Yup.object().shape({
 });
 
 const SignIn = () => {
-  const onSubmit = (values) => console.log('Sign.in', values);
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [signIn] = useSignIn();
+
+  const onSubmit = async (values) => {
+    const { username, password } = values;
+
+    try {
+      const { data } = await signIn({ username, password });
+      console.log(data.authenticate.accessToken);
+      setErrorMsg(null);
+    } catch (e) {
+      console.log(e.message);
+      setErrorMsg(e.message);
+    }
+  };
 
   return(
     <View style={styles.container}>
@@ -34,7 +50,7 @@ const SignIn = () => {
         onSubmit={onSubmit}
         validationSchema={signInSchema}
       >
-        {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
+        {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} errorMessage={errorMsg} />}
       </Formik>
     </View>
   );
