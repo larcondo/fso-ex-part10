@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingTop: Constants.statusBarHeight + 10,
     backgroundColor: theme.backgroundColors.appBar,
-    width: '100%',
+    alignSelf: 'stretch',
   },
 });
 

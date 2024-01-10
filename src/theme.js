@@ -2,9 +2,9 @@ import { Platform } from 'react-native';
 
 const theme = {
   backgroundColors: {
-    appBar: '#88aaff',
+    appBar: '#24292e',
     appBarButtom: '#88aaff',
-    appBarLink: '#7996E0',
+    appBarLink: '#2E343B',
     main: '#e1e4e8',
     repositoryItem: '#ffffff',
     submitButton: '#0366d6',

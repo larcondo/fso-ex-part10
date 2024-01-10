@@ -13,12 +13,24 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     textAlign: 'center',
   },
+  loadingContainer: {
+    width: '100%',
+    flexGrow: 1,
+    alignSelf: 'stretch',
+  },
+  loadingText: {
+    flexGrow: 1,
+  },
 });
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
 const LoadingText = () => {
-  return <Text style={styles.basicText}>loading...</Text>;
+  return(
+    <View style={styles.loadingContainer}>
+      <Text style={[styles.basicText, styles.loadingText]}>loading...</Text>
+    </View>
+  );
 };
 
 const ErrorText = ({ message }) => {
