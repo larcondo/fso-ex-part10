@@ -14,23 +14,23 @@ const styles = StyleSheet.create({
   }
 });
 
-const RepositoryStat = ({ text, value }) => {
-  const formatValue = (val) => {
-    switch(true) {
-    case val > 999 && val < 1000000:
-      // return (val / 1000).toFixed(1) + 'k';
-      return Math.floor((val / 1000) * 10) / 10 + 'k';
-    case val > 999999:
-      // return (val / 1000000).toFixed(1) + 'M';
-      return Math.floor((val / 1000000) * 10) / 10 + 'k';
-    default:
-      return val;
-    }
-  };
+export const formatStatValue = (val) => {
+  switch(true) {
+  case val > 999 && val < 1000000:
+    // return (val / 1000).toFixed(1) + 'k';
+    return Math.floor((val / 1000) * 10) / 10 + 'k';
+  case val > 999999:
+    // return (val / 1000000).toFixed(1) + 'M';
+    return Math.floor((val / 1000000) * 10) / 10 + 'M';
+  default:
+    return val;
+  }
+};
 
+const RepositoryStat = ({ text, value, testId }) => {
   return(
-    <View>
-      <Text style={styles.statValue} fontWeight='bold'>{ formatValue(value) }</Text>
+    <View testID={testId}>
+      <Text style={styles.statValue} fontWeight='bold'>{ formatStatValue(value) }</Text>
       <Text style={styles.statText} color='textSecondary'>{ text }</Text>
     </View>
   );

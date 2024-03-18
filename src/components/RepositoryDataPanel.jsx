@@ -28,9 +28,9 @@ const styles = StyleSheet.create({
 const RepositoryDataPanel = ({ repo }) => {
   return(
     <View style={styles.dataContainer}>
-      <Text fontWeight='bold' fontSize='subheading'>{ repo.fullName }</Text>
-      <Text style={styles.description} color='textSecondary'>{ repo.description }</Text>
-      <Text style={styles.language}>{ repo.language }</Text>
+      <Text fontWeight='bold' fontSize='subheading' testID='repo-name'>{ repo.fullName }</Text>
+      <Text style={styles.description} color='textSecondary' testID='repo-desc'>{ repo.description }</Text>
+      <Text style={styles.language} testID='repo-lang'>{ repo.language }</Text>
     </View>
   );
 };

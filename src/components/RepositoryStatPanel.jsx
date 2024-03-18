@@ -13,10 +13,10 @@ import RepositoryStat from './RepositoryStat';
 const RepositoryStatPanel = ({ repo }) => {
   return(
     <View style={styles.statContainer}>
-      <RepositoryStat value={repo.stargazersCount} text='Stars' />
-      <RepositoryStat value={repo.forksCount} text='Forks' />
-      <RepositoryStat value={repo.reviewCount} text='Reviews' />
-      <RepositoryStat value={repo.ratingAverage} text='Rating' />
+      <RepositoryStat value={repo.stargazersCount} text='Stars' testId='stars' />
+      <RepositoryStat value={repo.forksCount} text='Forks' testId='forks' />
+      <RepositoryStat value={repo.reviewCount} text='Reviews' testId='reviews' />
+      <RepositoryStat value={repo.ratingAverage} text='Rating' testId='rating' />
     </View>
   );
 };

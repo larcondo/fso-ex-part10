@@ -43,17 +43,10 @@ const ErrorText = ({ message }) => {
   );
 };
 
-const RepositoryList = () => {
-  const { data, error, loading } = useQuery(GET_REPOSITORIES, {
-    fetchPolicy: 'cache-and-network',
-  });
-
-  if (loading) return <LoadingText />;
-  if (error) return <ErrorText message={error.message} />;
-
+export const RepositoryListContainer = ({ repositories }) => {
   // Get the nodes from the edges array
-  const repositoryNodes = data
-    ? data.repositories.edges.map( edge => edge.node )
+  const repositoryNodes = repositories
+    ? repositories.edges.map( edge => edge.node )
     : [];
 
   return (
@@ -64,6 +57,17 @@ const RepositoryList = () => {
       keyExtractor={item => item.id}
     />
   );
+};
+
+const RepositoryList = () => {
+  const { data, error, loading } = useQuery(GET_REPOSITORIES, {
+    fetchPolicy: 'cache-and-network',
+  });
+
+  if (loading) return <LoadingText />;
+  if (error) return <ErrorText message={error.message} />;
+
+  return <RepositoryListContainer repositories={data.repositories} />;
 };
 
 export default RepositoryList;
