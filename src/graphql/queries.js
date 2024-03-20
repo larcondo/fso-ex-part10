@@ -21,6 +21,20 @@ ${BASIC_REPOSITORY_FIELDS}
     repository(id: $repositoryId) {
       ...BasicRepositoryFields
       url
+      reviews {
+        edges {
+          node {
+            id
+            text
+            rating
+            createdAt
+            user {
+              id
+              username
+            }
+          }
+        }
+      }
     }
   }
 `;
