@@ -64,7 +64,7 @@ const NewReview = () => {
 
 const ReviewForm = ({ onSubmit, errorMessage }) => {
   return(
-    <View>
+    <View style={styles.formContainer}>
       <FormikTextInput name='ownerName' placeholder='Repository owner name' />
       <FormikTextInput name='repositoryName' placeholder='Repository name' />
       <FormikTextInput name='rating' placeholder='Rating between 0 and 100' />
@@ -85,7 +85,11 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     alignSelf: 'stretch',
-    padding: 20,
+    padding: 10,
+  },
+  formContainer: {
+    padding: 10,
+    backgroundColor: 'white',
   },
   submitButton: {
     backgroundColor: theme.backgroundColors.submitButton,

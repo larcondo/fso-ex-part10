@@ -52,6 +52,8 @@ const AppBarTab = () => {
         </Button>
         : <AppBarLink route='/signin' text='Sign-in' />
       }
+
+      { data && !data.me && <AppBarLink route='/signup' text='Sign-up' /> }
     </View>
   );
 };
