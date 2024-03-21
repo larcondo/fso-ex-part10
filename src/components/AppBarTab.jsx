@@ -1,10 +1,11 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native';
-import { Link } from 'react-router-native';
 import theme from '../theme';
 import { useQuery } from '@apollo/client';
 import useAuthStorage from '../hooks/useAuthStorage';
 import { useApolloClient } from '@apollo/client';
 import { ME } from '../graphql/queries';
+
+import AppBarLink from './AppBarLink';
 
 const styles = StyleSheet.create({
   container: {
@@ -39,17 +40,17 @@ const AppBarTab = () => {
 
   return(
     <View style={styles.container}>
-      <Link to='/' underlayColor={theme.backgroundColors.appBarLink}>
-        <Text style={styles.textLink}>Repositories</Text>
-      </Link>
+      <AppBarLink route='/' text='Repositories' />
+
+      { data && data.me &&
+        <AppBarLink route='/newreview' text='Create a review' />
+      }
 
       { data && data.me
         ? <Button onPress={onPressFunc}>
           <Text style={[styles.textLink, { fontWeight: 'normal' }]}>Sign-out</Text>
         </Button>
-        : <Link to='/signin' underlayColor={theme.backgroundColors.appBarLink}>
-          <Text style={styles.textLink}>Sign-in</Text>
-        </Link>
+        : <AppBarLink route='/signin' text='Sign-in' />
       }
     </View>
   );
