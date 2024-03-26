@@ -48,10 +48,26 @@ ${BASIC_REPOSITORY_FIELDS}
 `;
 
 export const ME = gql`
-  query Me {
+  query Me($includeReviews: Boolean = false) {
     me {
       username,
-      createdAt
+      createdAt,
+      reviews @include(if: $includeReviews) {
+        edges {
+          node {
+            id
+            text
+            rating
+            createdAt
+            user {
+              username
+            }
+            repository {
+              fullName
+            }
+          }
+        }
+      }
     }
   }
 `;

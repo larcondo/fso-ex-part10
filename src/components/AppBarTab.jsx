@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import useAuthStorage from '../hooks/useAuthStorage';
 import { useApolloClient } from '@apollo/client';
 import { ME } from '../graphql/queries';
+import { useNavigate } from 'react-router-native';
 
 import AppBarLink from './AppBarLink';
 
@@ -32,10 +33,12 @@ const AppBarTab = () => {
   const authStorage = useAuthStorage();
   const { data } = useQuery(ME);
   const apolloClient = useApolloClient();
+  const navigate = useNavigate();
 
   const onPressFunc = async () => {
     await authStorage.removeAccessToken();
     apolloClient.resetStore();
+    navigate('/signin');
   };
 
   return(
@@ -43,7 +46,10 @@ const AppBarTab = () => {
       <AppBarLink route='/' text='Repositories' />
 
       { data && data.me &&
+      <>
         <AppBarLink route='/newreview' text='Create a review' />
+        <AppBarLink route='/myreviews' text='My reviews' />
+      </>
       }
 
       { data && data.me

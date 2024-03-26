@@ -1,13 +1,11 @@
 import React from 'react';
-import { FlatList, View, StyleSheet, Pressable, Text, ActivityIndicator } from 'react-native';
+import { FlatList, StyleSheet, Pressable, Text, ActivityIndicator } from 'react-native';
 
 import RepositoryItem from './RepositoryItem';
 import RepositoryListHeader from './RepositoryListHeader';
+import ItemSeparator from './ItemSeparator';
 
 const styles = StyleSheet.create({
-  separator: {
-    height: 10,
-  },
   noResultsText: {
     alignSelf: 'stretch',
     textAlign: 'center',
@@ -17,8 +15,6 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   }
 });
-
-const ItemSeparator = () => <View style={styles.separator} />;
 
 const LoadingIndicator = () => <ActivityIndicator animating={true} size={'large'} style={styles.loadingIndicator}/>;
 
