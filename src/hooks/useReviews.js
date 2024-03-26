@@ -8,7 +8,7 @@ const useReviews = (includeReviews = false) => {
   });
 
   return {
-    reviews: data.me?.reviews.edges,
+    reviews: data?.me?.reviews.edges,
     loading,
     ...result,
   };

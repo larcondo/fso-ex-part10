@@ -12,7 +12,7 @@ const LoadingIndicator = () => (
 );
 const NoResults = () => <Text style={styles.noResultsText}>No results</Text>;
 
-const MyReviewList = ({ reviews, loading }) => {
+const MyReviewList = ({ reviews, loading, refetch }) => {
   if (!reviews) return null;
 
   const reviewNodes = reviews
@@ -23,7 +23,7 @@ const MyReviewList = ({ reviews, loading }) => {
     <FlatList
       data={reviewNodes}
       keyExtractor={item => item.id}
-      renderItem={({ item }) => <ReviewItem review={item} showRepoName />}
+      renderItem={({ item }) => <ReviewItem review={item} showRepoName refetch={refetch}/>}
       ItemSeparatorComponent={<ItemSeparator />}
       ListEmptyComponent={
         loading

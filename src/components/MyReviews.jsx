@@ -4,11 +4,11 @@ import useReviews from '../hooks/useReviews';
 import MyReviewList from './MyReviewList';
 
 const MyReviews = () => {
-  const { reviews, loading } = useReviews(true);
+  const { reviews, loading, refetch } = useReviews(true);
 
   return(
     <View style={styles.container}>
-      <MyReviewList reviews={reviews} loading={loading} />
+      <MyReviewList reviews={reviews} loading={loading} refetch={refetch} />
     </View>
   );
 };
