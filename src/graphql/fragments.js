@@ -13,3 +13,18 @@ export const BASIC_REPOSITORY_FIELDS = gql`
     ownerAvatarUrl
   }
 `;
+
+export const REVIEWS_FIELDS = gql`
+  fragment ReviewsFields on Review {
+    id
+    text
+    rating
+    createdAt
+    user{
+      username
+    }
+    repository {
+      fullName
+    }
+  }
+`;
